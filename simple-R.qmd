@@ -1,0 +1,30 @@
+# Create a Scatter Plot
+
+Now we'll use `ggplot2` to create a scatter plot of `x` vs `y`, with a fitted line.
+
+```{r scatter-plot, fig-width=8, fig-height=5}
+ggplot(data, aes(x = x, y = y)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", se = TRUE, color = "blue") +
+  labs(
+    title = "Scatter Plot with Linear Fit",
+    x = "X Variable",
+    y = "Y Variable"
+  ) +
+  theme_minimal()
+```
+
+# Summary Statistics
+
+Let's compute some basic summary statistics.
+
+```{r summary-stats}
+data %>%
+  summarise(
+    mean_x = mean(x),
+    mean_y = mean(y),
+    sd_y = sd(y),
+    cor_xy = cor(x, y)
+  )
+```
+
